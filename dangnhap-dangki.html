@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>✈ĐăngNhập/ĐăngKí</title>
+    <link rel="stylesheet" href="dangnhap-dangki.css">
+    <style>
+         body{
+            background-image: url(br1.jpeg);
+        }
+        
+        
+
+    </style>
+</head>
+<body>
+    <!-- tạo from đăng kí -->
+    <h2>Đăng Nhập/Đăng kí <br>
+        <a href="index.html">Trang Chủ</a>
+    </h2>
+    <div class="container" id="container">
+        <div class="form-container sign-up-container">
+            <form action="#" onsubmit="kiemtra()">
+                <h1>Tạo tài khoản mới</h1>
+                <div class="social-container">
+                    <a href="#" class="social"><i class="fab fa-facebook-f"><img width="40" src="pic/facebook.jpg" alt=""></i></a>
+                    <a href="#" class="social"><i class="fab fa-google-plus-g"><img width="55" src="pic/youtube.jpg" alt=""></i></a>
+                    <a href="#" class="social"><i class="fab fa-linkedin-in"><img width="45" src="pic/instagram.jpg" alt=""></i></a>
+                </div>
+                <span>hoặc sử dụng email của bạn để đăng ký</span>
+                <input type="text" id="name" placeholder="Name" />
+                <input type="email" id="Email" placeholder="Email" />
+                <input type="password" id="pass" placeholder="Password" />
+                <button>Đăng Nhập</button>
+            </form>
+        </div>
+        <div class="form-container sign-in-container">
+            <form action="#" onsubmit="kiemtra1()">
+                <h1>Đăng Nhập</h1>
+                <div class="social-container">
+                    <a href="#" class="social"><i class="fab fa-facebook-f"><img width="40" src="pic/facebook.jpg" alt=""></i></a>
+                    <a href="#" class="social"><i class="fab fa-google-plus-g"><img width="55" src="pic/youtube.jpg" alt=""></i></a>
+                    <a href="#" class="social"><i class="fab fa-linkedin-in"><img width="45" src="pic/instagram.jpg" alt=""></i></a>
+                </div>
+                <span>hoặc sử dụng tài khoản của bạn</span>
+                <input type="email" placeholder="Email" />
+                <input type="password" placeholder="Password" />
+                <a href="#">Quên Mật khẩu?</a>
+                <button>Đăng Nhập</button>
+            </form>
+        </div>
+        <div class="overlay-container">
+            <div class="overlay">
+                <div class="overlay-panel overlay-left">
+                    <h1>Chào mừng trở lại!</h1>
+                    <p>Để giữ kết nối với chúng tôi, vui lòng đăng nhập bằng thông tin cá nhân của bạn</p>
+                    <button class="ghost" id="signIn">Đăng Nhập</button>
+                </div>
+                <div class="overlay-panel overlay-right">
+                    <h1>Chào bạn!</h1>
+                    <p>Nhập thông tin cá nhân của bạn và bắt đầu hành trình với chúng tôi</p>
+                    <button class="ghost" id="signUp">Đăng kí</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    
+        const signUpButton = document.getElementById('signUp');
+        const signInButton = document.getElementById('signIn');
+        const container = document.getElementById('container');
+
+        signUpButton.addEventListener('click', () => {
+            container.classList.add('right-panel-active');
+        });
+
+        signInButton.addEventListener('click', () => {
+            container.classList.remove('right-panel-active');
+        });
+
+
+        function kiemtra() {
+
+            var name = document.getElementById("name")
+            var email = document.getElementById("Email")
+            var pass = document.getElementById("pass")
+
+            if(name.value.length == 0){
+                alert("Hãy nhập tên")
+            }
+            if(pass.value.length == 0){
+                alert(" mật khẩu phải lớn hơn 5 kí tự!!")
+            }else{
+                alert("Đăng Ký thành Công")
+            }
+            
+        }
+        function kiemtra1() {
+
+                var name = document.getElementById("name")
+                var email = document.getElementById("Email")
+                var pass = document.getElementById("pass")
+
+                if(email.value.length == 0){
+                    alert("Hãy nhập Email")
+                }
+                if(pass.value.length == 0){
+                    alert(" mật khẩu phải lớn hơn 5 kí tự!!")
+                }else{
+                    alert("Đăng nhập thành Công")
+                }
+
+        }
+    
+</script>
+</html>

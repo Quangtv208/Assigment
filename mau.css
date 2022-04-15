@@ -1,0 +1,94 @@
+.allbr {
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+.movieslist {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+.movieslist>div {
+    display: block;
+}
+body>.movieslist {
+    font-size: 14px;
+    font-family: roboto,sans-serif;
+    font-weight: 400;
+    color: #ccc;
+    line-height: normal;
+    
+    margin: 0;
+    padding: 0;
+    position: relative;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+.movieslist .movie-item {
+    width: 25%;
+}
+.movieslist .movie-item {
+    width: 20%;
+    margin-bottom: 5px;
+    background: #5a5a5a;
+    padding: 5px;
+    box-sizing: border-box;
+    position: relative;
+    border: 2px solid #404040;
+}
+.movieslist>.movie-item>a {
+    text-decoration: none;
+    color: #cac9c9;
+}
+.movieslist>.movie-item>.name-movie>a{
+    text-decoration: none;
+    color: #cac9c9;
+    font-family: sans-serif;
+}
+.movieslist>.movie-item>.score>a{
+    text-decoration: none;
+    color: #cac9c9;
+}
+
+.movieslist .movie-item .episode-latest {
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    padding: 5px 10px;
+    background-color: #383838;
+    font-weight: 700;
+    font-size: 14px;
+    border-radius: 4px;
+    border: 3px double #5a5a5a;
+    letter-spacing: 1px;
+}
+.movieslist .movie-item img {
+    height:240px;
+}
+.movieslist .movie-item img:hover{filter: blur(5px);} 
+.movieslist .movie-item img {
+    width: 100%;
+    
+    display: block;
+}
+.movieslist .movie-item .score {
+    position: absolute;
+    right: 10px;
+    bottom: 37px;
+    padding: 5px 10px;
+    background-color: #903a3a;
+    font-weight: 700;
+    font-size: 12px;
+    border-radius: 4px;
+}
+.movieslist .movie-item .name-movie {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    margin-top: 5px;
+    padding: 3px 5px;
+    text-align: center;
+    color: #ecdbc9;
+    font-weight: 700;
+}

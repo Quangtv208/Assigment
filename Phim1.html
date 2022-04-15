@@ -1,0 +1,383 @@
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="mau.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="slideshow.css">
+
+  <style>
+    body {
+      /* background-image: url(br2.jpeg); */
+      background-color: #333;
+    }
+
+    * {
+      margin: 0;
+      padding: 0
+    }
+
+    .menu {
+      background: #333;
+      height: 60px
+    }
+
+    .menu li {
+      float: left;
+      list-style: none;
+      margin-right: 10px;
+      padding: 20px 10px;
+      width: 120px
+    }
+
+    .menu li:hover {
+      background: rgb(81, 49, 49);
+    }
+
+    .menu li a {
+      color: #fff;
+      text-decoration: none
+    }
+
+    .menu li ul li {
+      display: none;
+      width: 100px;
+      margin-top: 10px
+    }
+
+    .menu li:hover ul li {
+      display: block
+    }
+
+    .logo>a {
+      text-decoration: none;
+      float: right;
+      font-size: 30px;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: #fff;
+    }
+
+    .box {
+      height: 40px;
+      position: absolute;
+      top: 5%;
+      left: 70%;
+      transform: translate(-50%, -50%);
+      background: #4e5866;
+      border-radius: 50px;
+      padding: 10px;
+    }
+
+    .sbutton {
+      color: #e84118;
+      float: right;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: #DADADA;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-decoration: none;
+      transition: 0.4s;
+    }
+
+    .stext {
+      border: none;
+      background: none;
+      outline: none;
+      float: left;
+      padding: 0;
+      color: rgb(199, 176, 176);
+      font-size: 15px;
+      transition: 0.4s;
+      line-height: 40px;
+      width: 0px;
+    }
+
+    .sbox:hover>.stext {
+      width: 200px;
+      padding: 0 5px;
+      border-radius: 50px;
+    }
+
+    .sbox:hover>.sbutton {
+      background: #fff;
+    }
+
+    .fa-search {
+      color: #001EFF;
+    }
+
+    body>.slideshow {
+      text-align: center;
+      font-size: 18px;
+      background-size: cover;
+      color: #fff;
+      font-family: sans-serif;
+      margin: 0;
+      padding-top: 0;
+    }
+
+    .slideshow>h1 {
+      font-size: 48px;
+    }
+
+    .slideshow>h4 {
+      font-size: 24px;
+    }
+
+    .slideshow a {
+      padding: 15px 25px;
+      background-color: #4ca74c;
+      color: #fff;
+      border-radius: 25px;
+      text-decoration: none;
+      position: absolute;
+      left: 45%;
+    }
+
+    #mySlider {
+      overflow: hidden;
+      position: relative;
+      width: 100%;
+      height: 300px;
+    }
+
+    .singleSlide {
+      background-size: cover;
+      height: 300px;
+      position: absolute;
+      left: 100%;
+      width: 100%;
+      top: 0px;
+    }
+
+    .slideOverlay {
+      background-color: rgba(0, 0, 0, 0.5);
+      padding: 50px;
+    }
+
+    #sliderNav {
+      position: relative;
+      top: -175px;
+    }
+
+    #sliderNav:hover {
+      cursor: pointer;
+    }
+
+    #sliderPrev {
+      position: relative;
+      float: left;
+      left: 50px;
+    }
+
+    #sliderNext {
+      position: relative;
+      float: right;
+      right: 50px;
+    }
+
+    #sliderNext img,
+    #sliderPrev img {
+      width: 32px;
+    }
+
+    @-webkit-keyframes slideIn {
+      100% {
+        left: 0;
+      }
+    }
+
+    @keyframes slideIn {
+      100% {
+        left: 0;
+      }
+    }
+
+    .slideInRight {
+      left: -100%;
+      -webkit-animation: slideIn 1s forwards;
+      animation: slideIn 1s forwards;
+    }
+
+    .slideInLeft {
+      left: 100%;
+      -webkit-animation: slideIn 1s forwards;
+      animation: slideIn 1s forwards;
+    }
+
+    @-webkit-keyframes slideOutLeft {
+      100% {
+        left: -100%;
+      }
+    }
+
+    @keyframes slideOutLeft {
+      100% {
+        left: -100%;
+      }
+    }
+
+    .slideOutLeft {
+      -webkit-animation: slideOutLeft 1s forwards;
+      animation: slideOutLeft 1s forwards;
+    }
+
+    @-webkit-keyframes slideOutRight {
+      100% {
+        left: 100%;
+      }
+    }
+
+    @keyframes slideOutRight {
+      100% {
+        left: 100%;
+      }
+    }
+
+    .slideOutRight {
+      -webkit-animation: slideOutRight 1s forwards;
+      animation: slideOutRight 1s forwards;
+    }
+
+    .pdb>h1 {
+      color: goldenrod;
+      padding-bottom: 10px;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .giohang{
+      position: absolute;
+      right: 20px;
+      top: 375px;
+      background-color: #001EFF;
+      padding: 10px;
+      border-radius: 5px;
+      border: #4ca74c 1px solid;
+      z-index: 9999;
+
+
+    }
+    .giohang img{
+      width: 80px;
+      height: 80px;
+      object-fit: cover;
+    }
+    .gh{
+      position: absolute;
+     
+      top: 375px;
+      background-color: #515889;
+      padding: 10px;
+      border-radius: 5px;
+      border: #254525 2px solid;
+      z-index: 9999;
+      left: 25%;
+    }
+    .fb{
+        width: 100%;
+        height: 500px;
+        background-color: #19112623;
+        
+        
+    }
+    #pc1{
+        width: 35%;
+        height: 400px;
+        position: absolute;
+        left: 5%;
+        top: 20%;
+        border: #515889 4px solid;
+        border-radius: 20px;
+
+    }
+    .status{
+        position: absolute;
+        top: 20%;
+        left: 41%;
+        width: 45%;
+        height: 400px;
+        background-color: #171a31;
+        border: #4e5866 4px solid;
+        border-radius: 20px;
+    }
+    .status>p{
+        text-align: left;
+        padding: 10px;
+        margin: 10px;
+        color: #fff;
+        
+    }
+    .btn{
+        width: 100px;
+        height: 50px;
+        color: yellow;
+        background-color: #4e5866;
+        position: absolute;
+        left: 45%;
+        top: 80%;
+    }
+   
+
+  </style>
+</head>
+
+<body>
+  
+  <div class="menu">
+    <ul>
+      <li><a href="/">🌍Quốc gia</a>
+        <ul>
+          <li><a href="/">Phim Mỹ</a></li>
+          <li><a href="/">Hàn Quốc</a></li>
+          <li><a href="/">Thái Lan</a></li>
+        </ul>
+      </li>
+      <li><a href="/">⬇️Loại Phim</a>
+        <ul>
+          <li><a href="/">Phim Bộ</a></li>
+          <li><a href="/">Phim Ngắn</a></li>
+          <li><a href="/">Phim chưa Sub</a></li>
+        </ul>
+      </li>
+      <li><a href="">Mua Phim Nhanh</a></li>
+      <li><a href="dangnhap-dangki.html">Đăng nhập/Đăng kí </a></li>
+    </ul>
+    <div class="logo">
+      <a href="index.html">
+        <p>PhimHayLam.net</p>
+      </a>
+    </div>
+  </div>
+  <div class="box">
+    <form class="sbox" action="/search" method="get">
+      <input class="stext" type="text" name="q" placeholder="Tìm kiếm bài viết...">
+      <a class="sbutton" type="submit" href="javascript:void(0);">
+        <i class="fa fa-search"></i>
+      </a>
+    </form>
+  </div>
+  <div class="fb">
+      <img id="pc1" src="pic/sanpham2.jpg" alt="">
+      <div class="status">
+          <p
+          style="padding: 20px;">Phim hay 
+              Tên: Harry Potter <br>
+              Tập: 1 tập <br>
+              Thời Lượng: 90 phút <br>
+              Nội Dung: hành trình tìm hiểu về phép thuật và tình bạn, tình yêu tuổi mới lớn, cảm giác gia đình và các cuộc phiêu lưu cùng cậu bé harry tại học viện phép thuật<br>
+              Đánh giá:  ⭐ ⭐ ⭐ ⭐ ⭐<br>
+              Giá bán: 500000$ Giảm 10%<br>
+          </p>
+          <button class="btn">Xem</button>
+          
+
+      </div>
+  </div>
+</body>
+</html>

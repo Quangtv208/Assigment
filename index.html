@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> 📀 PhimHayLam</title>
+  <link rel="stylesheet" href="mau.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+  <style>
+    body {
+      /* background-image: url(br2.jpeg); */
+      background-color: #333;
+    }
+
+    * {
+      margin: 0;
+      padding: 0
+    }
+
+    .menu {
+      background: #333;
+      height: 60px
+    }
+
+    .menu li {
+      float: left;
+      list-style: none;
+      margin-right: 10px;
+      padding: 20px 10px;
+      width: 120px
+    }
+
+    .menu li:hover {
+      background: rgb(81, 49, 49);
+    }
+
+    .menu li a {
+      color: #fff;
+      text-decoration: none
+    }
+
+    .menu li ul li {
+      display: none;
+      width: 100px;
+      margin-top: 10px
+    }
+
+    .menu li:hover ul li {
+      display: block
+    }
+
+    .logo>a {
+      text-decoration: none;
+      float: right;
+      font-size: 30px;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: #fff;
+    }
+
+    .box {
+      height: 40px;
+      position: absolute;
+      top: 5%;
+      left: 70%;
+      transform: translate(-50%, -50%);
+      background: #4e5866;
+      border-radius: 50px;
+      padding: 10px;
+    }
+
+    .sbutton {
+      color: #e84118;
+      float: right;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: #DADADA;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-decoration: none;
+      transition: 0.4s;
+    }
+
+    .stext {
+      border: none;
+      background: none;
+      outline: none;
+      float: left;
+      padding: 0;
+      color: rgb(199, 176, 176);
+      font-size: 15px;
+      transition: 0.4s;
+      line-height: 40px;
+      width: 0px;
+    }
+
+    .sbox:hover>.stext {
+      width: 200px;
+      padding: 0 5px;
+      border-radius: 50px;
+    }
+
+    .sbox:hover>.sbutton {
+      background: #fff;
+    }
+
+    .fa-search {
+      color: #001EFF;
+    }
+    
+
+    body>.slideshow {
+      text-align: center;
+      font-size: 18px;
+      background-size: cover;
+      color: #fff;
+      font-family: sans-serif;
+      margin: 0;
+      padding-top: 0;
+    }
+
+    .slideshow>h1 {
+      font-size: 48px;
+    }
+
+    .slideshow>h4 {
+      font-size: 24px;
+    }
+
+    .slideshow a {
+      padding: 15px 25px;
+      background-color: #4ca74c;
+      color: #fff;
+      border-radius: 25px;
+      text-decoration: none;
+      position: absolute;
+      left: 45%;
+    }
+
+    #mySlider {
+      overflow: hidden;
+      position: relative;
+      width: 100%;
+      height: 300px;
+    }
+
+    .singleSlide {
+      background-size: cover;
+      height: 300px;
+      position: absolute;
+      left: 100%;
+      width: 100%;
+      top: 0px;
+    }
+
+    .slideOverlay {
+      background-color: rgba(0, 0, 0, 0.5);
+      padding: 50px;
+    }
+
+    #sliderNav {
+      position: relative;
+      top: -175px;
+    }
+
+    #sliderNav:hover {
+      cursor: pointer;
+    }
+
+    #sliderPrev {
+      position: relative;
+      float: left;
+      left: 50px;
+    }
+
+    #sliderNext {
+      position: relative;
+      float: right;
+      right: 50px;
+    }
+
+    #sliderNext img,
+    #sliderPrev img {
+      width: 32px;
+    }
+
+    @-webkit-keyframes slideIn {
+      100% {
+        left: 0;
+      }
+    }
+
+    @keyframes slideIn {
+      100% {
+        left: 0;
+      }
+    }
+
+    .slideInRight {
+      left: -100%;
+      -webkit-animation: slideIn 1s forwards;
+      animation: slideIn 1s forwards;
+    }
+
+    .slideInLeft {
+      left: 100%;
+      -webkit-animation: slideIn 1s forwards;
+      animation: slideIn 1s forwards;
+    }
+
+    @-webkit-keyframes slideOutLeft {
+      100% {
+        left: -100%;
+      }
+    }
+
+    @keyframes slideOutLeft {
+      100% {
+        left: -100%;
+      }
+    }
+
+    .slideOutLeft {
+      -webkit-animation: slideOutLeft 1s forwards;
+      animation: slideOutLeft 1s forwards;
+    }
+
+    @-webkit-keyframes slideOutRight {
+      100% {
+        left: 100%;
+      }
+    }
+
+    @keyframes slideOutRight {
+      100% {
+        left: 100%;
+      }
+    }
+
+    .slideOutRight {
+      -webkit-animation: slideOutRight 1s forwards;
+      animation: slideOutRight 1s forwards;
+    }
+
+    .pdb>h1 {
+      color: goldenrod;
+      padding-bottom: 10px;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .giohang{
+      position: absolute;
+      right: 20px;
+      top: 375px;
+      background-color: #001EFF;
+      padding: 10px;
+      border-radius: 5px;
+      border: #4ca74c 1px solid;
+      z-index: 9999;
+
+
+    }
+    .giohang img{
+      width: 80px;
+      height: 80px;
+      object-fit: cover;
+    }
+    .gh{
+      position: absolute;
+     
+      top: 375px;
+      background-color: #515889;
+      padding: 10px;
+      border-radius: 5px;
+      border: #254525 2px solid;
+      z-index: 9999;
+      left: 25%;
+    }
+
+  </style>
+</head>
+
+<body>
+  <div id="giohang" class="giohang" style="display: none">
+    <table>
+      <tr>
+        <th>STT</th>
+        <th>Hình</th>
+        <th>Tên sản phẩm</th>
+        <th>Đơn giá</th>
+        <th>Số lượng</th>
+        <th>Thành tiền</th>
+      </tr>
+      <tbody id="mycart">
+
+      </tbody>
+    </table>
+  </div>
+  <div class="gh">
+    Giỏ Hàng
+    <input type="button" id="btn1" value="Hiện" >
+    <input type="button" id="btn2" value="Ẩn" >
+  </div> 
+  <div class="menu">
+    <ul>
+      <li><a href="/">🌍Quốc gia</a>
+        <ul>
+          <li><a href="/">Phim Mỹ</a></li>
+          <li><a href="/">Hàn Quốc</a></li>
+          <li><a href="/">Thái Lan</a></li>
+        </ul>
+      </li>
+      <li><a href="/">⬇️Loại Phim</a>
+        <ul>
+          <li><a href="/">Phim Bộ</a></li>
+          <li><a href="/">Phim Ngắn</a></li>
+          <li><a href="/">Phim chưa Sub</a></li>
+        </ul>
+      </li>
+      <li><a href="muahangnhanh.html">Mua Phim Nhanh</a></li>
+      <li><a href="dangnhap-dangki.html">Đăng nhập/Đăng kí </a></li>
+    </ul>
+    <div class="logo">
+      <a href="index.html">
+        <p>PhimHayLam.net</p>
+      </a>
+    </div>
+  </div>
+  <div class="box">
+    <form class="sbox" action="/search" method="get">
+      <input class="stext" type="text" name="q" placeholder="Tìm kiếm bài viết...">
+      <a class="sbutton" type="submit" href="javascript:void(0);">
+        <i class="fa fa-search"></i>
+      </a>
+    </form>
+  </div>
+  <div class="slideshow">
+    <div id="mySlider"></div>
+    <div id="sliderNav">
+      <div id="sliderPrev" onclick="prevSlide();"><img
+          src="https://nguyenvanhieu.vn/wp-content/uploads/2020/09/left-arrow.png"></div>
+      <div id="sliderNext" onclick="nextSlide();"><img
+          src="https://nguyenvanhieu.vn/wp-content/uploads/2020/09/right-arrow.png"></div>
+    </div>
+
+  </div>
+  </div>
+  <div class="pdb">
+    <h1>Phim Đang Bán 📀
+      <hr>
+    </h1>
+  </div>
+  <div class="movieslist allbr">
+    <div class="movie-item" id="movie-id-2491">
+      
+        <div class="episode-latest"> <span>$550000</span></div>
+        <div>
+          <img src="pic/sanpham2.jpg" alt="Harry Potter">
+        </div>
+        <div class="score">
+          <button onclick="addcart(this);">🛒Thêm</button>
+        </div>
+        <div class="name-movie">
+          <p><a style="text-decoration: none; color: antiquewhite;" id="linkp" href="Phim1.html">Harry Potter</a></p>
+        </div>
+      </a>
+    </div>
+
+
+    <div class="movie-item">
+     
+        <div class="episode-latest">
+          <span>$250000</span>
+        </div>
+        <div>
+          <img src="pic/pic1.txt" alt="Ironman">
+        </div>
+        <div class="score">
+          <button onclick="addcart(this);">🛒Thêm</button>
+        </div>
+        <div class="name-movie">
+          <p>Ironman</p>
+        </div>
+      
+    </div>
+
+    <div class="movie-item">
+    
+        <div class="episode-latest"> 
+          <span>$1000000</span>
+        </div>
+        <div>
+          <img src="pic/sanpham3.jpg" alt="The Walking dead">
+        </div>
+        <div class="score">
+          <button onclick="addcart(this);">🛒Thêm</button>
+        </div>
+        <div class="name-movie">
+          <p>The Walking dead</p>
+        </div>
+      </a>
+    </div>
+
+    <div class="movie-item">
+     
+        <div class="episode-latest"> <span>$950000</span></div>
+        <div>
+          <img src="pic/sanpham4.jpg" alt="Doremon">
+        </div>
+        <div class="score">
+          <button onclick="addcart(this);">🛒Thêm</button>
+        </div>
+        <div class="name-movie">
+          <p>Doremon</p>
+        </div>
+      </a>
+    </div>
+
+    <div class="movie-item">
+      
+        <div class="episode-latest"> <span>$350000</span></div>
+        <div>
+          <img src="pic/sanpham5.jpeg" alt="Revolver">
+        </div>
+        <div class="score">
+          <button onclick="addcart(this);">🛒Thêm</button>
+        </div>
+        <div class="name-movie">
+          <p>Revolver</p>
+        </div>
+      </a>
+    </div>
+
+    <div class="movie-item">
+      <a href="#" title="Totoro">
+        <div class="episode-latest"> <span>50000$</span></div>
+        <div>
+          <img src="pic/hinh-nen-hang-xom-cua-toi-la-totoro-31.jpg" alt="Totoro">
+        </div>
+        <div class="score">
+          <button onclick="addcart(this);">🛒Thêm</button>
+        </div>
+        <div class="name-movie">
+          <a href="#">Totoro</a>
+        </div>
+      </a>
+    </div>
+
+    <div class="movie-item">
+      
+        <div class="episode-latest"> <span>$2900000</span></div>
+        <div>
+          <img src="pic/review-phim-Itaewon-Class.jpg" alt="ItaewonClass">
+        </div>
+        <div class="score">
+          <button onclick="addcart(this);">🛒Thêm</button>
+        </div>
+        <div class="name-movie">
+          <p>ItaewonClass</p>
+        </div>
+      </a>
+    </div>
+    <div class="movie-item">
+      
+        <div class="episode-latest"> <span>$210000</span></div>
+        <div>
+          <img src="pic/sanpham8.jpg" alt="Khung Long Đột Biến">
+        </div>
+        <div class="score">
+          <button onclick="addcart(this);">🛒Thêm</button>
+        </div>
+        <div class="name-movie">
+          <p>Khung Long Đột Biến</p>
+        </div>
+      </a>
+    </div>
+    <div class="movie-item">
+      
+        <div class="episode-latest"> <span>$150000</span></div>
+        <div>
+          <img src="pic/sanpham9.jpg" alt="Tín hiệu diệt vong">
+        </div>
+        <div class="score">
+          <button onclick="addcart(this);">🛒Thêm</button>
+        </div>
+        <div class="name-movie">
+          <p>Tín hiệu diệt vong</p>
+        </div>
+      </a>
+    </div>
+    <div class="movie-item">
+      
+        <div class="episode-latest"> <span>$950000</span></div>
+        <div>
+          <img src="pic/sanpham10.jpg" alt="Hẹn hò chốn công sở">
+        </div>
+        <div class="score">
+          <button onclick="addcart(this);">🛒Thêm</button>
+        </div>
+        <div class="name-movie">
+          <p>Hẹn hò chốn công sở</p>
+        </div>
+      </a>
+    </div>
+
+
+
+
+
+
+
+
+  </div>
+
+
+
+
+
+</body>
+<script>
+  // Mỗi slide sẽ có một chỉ số của riêng nó, để đơn giản chúng ta sẽ gán chỉ số mảng cho các slide
+  var slideIndex = 0;
+  // Cho ta biết chúng ta đang ở slide nào
+  var currentSlideIndex = 0;
+  // Mảng lưu các slide của chúng ta
+  var slideArray = [];
+
+  // Hàm này sẽ giúp chúng ta tạo ra các đối tượng slide
+  // bao gồm: tiêu đề, mô tả, ảnh, đường dẫn khi nhấp vào button trên slide, 
+  // và id của mỗi slide
+  function Slide(title, subtitle, background, link) {
+    this.title = title;
+    this.subtitle = subtitle;
+    this.background = background;
+    this.link = link;
+    // we need an id to target later using getElementById
+    this.id = "slide" + slideIndex;
+    // Add one to the index for the next slide number
+    slideIndex++;
+    // Add this Slide to our array
+    slideArray.push(this);
+  }
+
+
+  // Tạo các đối tượng slide, bạn có thể tạo nhiều hơn
+
+  var walkingDead = new Slide(
+    "The Walking Dead",
+    "A show about fighting zombies",
+    "https://acollectivemind.files.wordpress.com/2013/12/season-4-complete-cast-poster-the-walking-dead-the-walking-dead-35777405-2528-670.png",
+    "http://www.amc.com/shows/the-walking-dead"
+  );
+
+  var bigBang = new Slide(
+    "The Big Bang Theory",
+    "A show about Sheldon",
+    "https://www.denofgeek.com/wp-content/uploads/2019/02/tbbt_12-15.jpg",
+    "http://www.cbs.com/shows/big_bang_theory/"
+  );
+
+  var LastMan = new Slide(
+    "The Last Man on Earth",
+    "A show about loneliness",
+    "https://www.wired.com/wp-content/uploads/2015/02/LMOE-AliveInTuscon_scene44_0028_hires2.jpg",
+    "http://www.fox.com/the-last-man-on-earth"
+  );
+
+  // Từ mảng slide đã tạo, ta tiến hành đưa nó vào source HTML
+  function buildSlider() {
+    // A variable to hold all our HTML
+    var myHTML;
+
+    // Go through the Array and add the code to our HTML
+    for (var i = 0; i < slideArray.length; i++) {
+      myHTML +=
+        "<div id='" +
+        slideArray[i].id +
+        "' class='singleSlide' style='background-image:url(" +
+        slideArray[i].background +
+        ");'>" +
+        "<div class='slideOverlay'>" +
+        "<h1>" +
+        slideArray[i].title +
+        "</h1>" +
+        "<h4>" +
+        slideArray[i].subtitle +
+        "</h4>" +
+        "<a href='" +
+        slideArray[i].link +
+        "' target='_blank'>Open Link</a>" +
+        "</div>" +
+        "</div>";
+    }
+
+    // Đưa HTML chúng ta vừa tạo vào id #mySlider
+    document.getElementById("mySlider").innerHTML = myHTML;
+
+    // Đồng thời hiển thị slide đầu tiên
+    document.getElementById("slide" + currentSlideIndex).style.left = 0;
+  }
+
+  // Gọi hàm thực thi
+  buildSlider();
+
+
+  //sự kiện
+  // Xử lý bấm nút chuyển slide trước đó
+  function prevSlide() {
+    // Tìm slide trước đó
+    var nextSlideIndex;
+    // Nếu chỉ số slide là 0, về slide cuối
+    if (currentSlideIndex === 0) {
+      nextSlideIndex = slideArray.length - 1;
+    } else {
+      // Nếu không thì giảm chỉ số đi 1
+      nextSlideIndex = currentSlideIndex - 1;
+    }
+
+    // Ẩn slide hiện tại, hiện slide "currentSlideIndex"
+    document.getElementById("slide" + nextSlideIndex).style.left = "-100%";
+    document.getElementById("slide" + currentSlideIndex).style.left = 0;
+
+    // Thêm class để chuyển slide có animation đã định nghĩa ở bước 3
+    document
+      .getElementById("slide" + nextSlideIndex)
+      .setAttribute("class", "singleSlide slideInLeft");
+    document
+      .getElementById("slide" + currentSlideIndex)
+      .setAttribute("class", "singleSlide slideOutRight");
+
+    // Cập nhật giá trị slide hiện tại
+    currentSlideIndex = nextSlideIndex;
+  }
+
+  // Xử lý bấm nút chuyển slide tiếp theo
+  // Cách xử lý tương tự như prevSlide đã trình bày ở trên
+  function nextSlide() {
+    var nextSlideIndex;
+    if (currentSlideIndex === slideArray.length - 1) {
+      nextSlideIndex = 0;
+    } else {
+      nextSlideIndex = currentSlideIndex + 1;
+    }
+
+    document.getElementById("slide" + nextSlideIndex).style.left = "100%";
+    document.getElementById("slide" + currentSlideIndex).style.left = 0;
+
+    document
+      .getElementById("slide" + nextSlideIndex)
+      .setAttribute("class", "singleSlide slideInRight");
+    document
+      .getElementById("slide" + currentSlideIndex)
+      .setAttribute("class", "singleSlide slideOutLeft");
+
+    currentSlideIndex = nextSlideIndex;
+  }
+</script>
+<!-- link js -->
+<script src="mycart.js"></script>
+
+</html>
